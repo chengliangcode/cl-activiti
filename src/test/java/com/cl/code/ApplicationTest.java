@@ -41,7 +41,7 @@ public class ApplicationTest {
 
 
         //        3、根据流程定义Id启动流程
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("myLeave");
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("cl-shengpi");
 
         //        输出内容
         System.out.println("流程定义id：" + processInstance.getProcessDefinitionId());
