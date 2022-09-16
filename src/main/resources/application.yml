@@ -7,7 +7,7 @@ spring:
   activiti:
     #1.flase：默认值。activiti在启动时，对比数据库表中保存的版本，如果没有表或者版本不匹配，将抛出异常
     #2.true： activiti会对数据库中所有表进行更新操作。如果表不存在，则自动创建
-    #3.create_drop： 在activiti启动时创建表，在关闭时删除表（必须手动关闭引擎，才能删除表）
+    #3.create-drop： 在activiti启动时创建表，在关闭时删除表（必须手动关闭引擎，才能删除表）
     #    4.drop-create： 在activiti启动时删除原来的旧表，然后在创建新表（不需要手动关闭引擎）
     database-schema-update: drop-create
     #activiti7默认不生成历史信息表，开启历史表
