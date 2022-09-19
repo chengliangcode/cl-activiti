@@ -32,6 +32,7 @@ public class ApplicationTest {
     @Test
     public void deploy() {
         Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/cl-shengpi.bpmn20.xml").name("审批流程").deploy();
+        System.out.println(deployment);
     }
 
 
