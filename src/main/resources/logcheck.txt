@@ -1,0 +1,165 @@
+2022-09-21 15:40:26.528 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:40:26.528 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- starting  --------------------------------------------------------
+2022-09-21 15:40:26.528 DEBUG 16988 --- [           main] o.a.spring.SpringTransactionInterceptor  : Running command with propagation REQUIRED
+2022-09-21 15:40:26.529 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.interceptor.CommandInvoker$1 added to agenda
+2022-09-21 15:40:26.530 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : ---  finished --------------------------------------------------------
+2022-09-21 15:40:26.530 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:40:26.530 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:40:26.530 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- starting DeployCmd --------------------------------------------------------
+2022-09-21 15:40:26.530 DEBUG 16988 --- [           main] o.a.spring.SpringTransactionInterceptor  : Running command with propagation REQUIRED
+2022-09-21 15:40:26.531 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.interceptor.CommandInvoker$1 added to agenda
+
+
+
+
+
+
+2022-09-21 15:40:38.032 DEBUG 16988 --- [           main] o.a.e.impl.bpmn.deployer.BpmnDeployer    : Processing deployment 审批流程
+2022-09-21 15:40:38.032 DEBUG 16988 --- [           main] o.a.e.i.b.d.ParsedDeploymentBuilder      : Processing BPMN resource processes/cl-shengpi.bpmn20.xml
+2022-09-21 15:40:38.159 DEBUG 16988 --- [           main] o.a.e.i.b.p.handler.ProcessParseHandler  : Parsing process cl-shengpi
+2022-09-21 15:40:38.160 DEBUG 16988 --- [           main] p.e.P.selectLatestProcessDefinitionByKey : ==>  Preparing: select * from ACT_RE_PROCDEF where KEY_ = ? and (TENANT_ID_ = '' or TENANT_ID_ is null) and VERSION_ = (select max(VERSION_) from ACT_RE_PROCDEF where KEY_ = ? and (TENANT_ID_ = '' or TENANT_ID_ is null))
+2022-09-21 15:40:38.160 DEBUG 16988 --- [           main] p.e.P.selectLatestProcessDefinitionByKey : ==> Parameters: cl-shengpi(String), cl-shengpi(String)
+2022-09-21 15:40:38.161 DEBUG 16988 --- [           main] p.e.P.selectLatestProcessDefinitionByKey : <==      Total: 0
+2022-09-21 15:40:38.163 DEBUG 16988 --- [           main] bByTypeAndProcessDefinitionKeyNoTenantId : ==>  Preparing: select J.* from ACT_RU_TIMER_JOB J inner join ACT_RE_PROCDEF P on J.PROC_DEF_ID_ = P.ID_ where J.HANDLER_TYPE_ = ? and P.KEY_ = ? and (P.TENANT_ID_ = '' or P.TENANT_ID_ is null)
+2022-09-21 15:40:38.164 DEBUG 16988 --- [           main] bByTypeAndProcessDefinitionKeyNoTenantId : ==> Parameters: timer-start-event(String), cl-shengpi(String)
+2022-09-21 15:40:38.164 DEBUG 16988 --- [           main] bByTypeAndProcessDefinitionKeyNoTenantId : <==      Total: 0
+2022-09-21 15:40:38.164  INFO 16988 --- [           main] o.a.e.impl.bpmn.deployer.BpmnDeployer    : Process deployed: {id: cl-shengpi:1:af83f050-3980-11ed-b1bf-00ff49cde35d, key: cl-shengpi, name: cl-shengpi }
+2022-09-21 15:40:38.165 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:40:38.165 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- starting GetProcessDefinitionInfoCmd --------------------------------------------------------
+2022-09-21 15:40:38.165 DEBUG 16988 --- [           main] o.a.spring.SpringTransactionInterceptor  : Running command with propagation REQUIRED
+2022-09-21 15:40:38.165 DEBUG 16988 --- [           main] o.a.e.i.i.CommandContextInterceptor      : Valid context found. Reusing it for the current command 'org.activiti.engine.impl.cmd.GetProcessDefinitionInfoCmd'
+2022-09-21 15:40:38.165 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.interceptor.CommandInvoker$1 added to agenda
+2022-09-21 15:40:38.168 DEBUG 16988 --- [           main] ocessDefinitionInfoByProcessDefinitionId : ==>  Preparing: select * from ACT_PROCDEF_INFO where PROC_DEF_ID_ = ?
+2022-09-21 15:40:38.168 DEBUG 16988 --- [           main] ocessDefinitionInfoByProcessDefinitionId : ==> Parameters: cl-shengpi:1:af83f050-3980-11ed-b1bf-00ff49cde35d(String)
+2022-09-21 15:40:38.168 DEBUG 16988 --- [           main] ocessDefinitionInfoByProcessDefinitionId : <==      Total: 0
+2022-09-21 15:40:38.168 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- GetProcessDefinitionInfoCmd finished --------------------------------------------------------
+2022-09-21 15:40:38.168 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:40:38.169 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : Flushing dbSqlSession
+2022-09-21 15:40:38.169 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert DeploymentEntity[id=af6f2fce-3980-11ed-b1bf-00ff49cde35d, name=审批流程]
+2022-09-21 15:40:38.169 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert ProcessDefinitionEntity[cl-shengpi:1:af83f050-3980-11ed-b1bf-00ff49cde35d]
+2022-09-21 15:40:38.169 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert ResourceEntity[id=af6f2fcf-3980-11ed-b1bf-00ff49cde35d, name=processes/cl-shengpi.bpmn20.xml]
+2022-09-21 15:40:38.169 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : flush summary: 3 insert, 0 update, 0 delete.
+2022-09-21 15:40:38.169 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : now executing flush...
+2022-09-21 15:40:38.169 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : inserting: ProcessDefinitionEntity[cl-shengpi:1:af83f050-3980-11ed-b1bf-00ff49cde35d]
+2022-09-21 15:40:38.169 DEBUG 16988 --- [           main] o.a.e.i.p.e.P.insertProcessDefinition    : ==>  Preparing: insert into ACT_RE_PROCDEF(ID_, REV_, CATEGORY_, NAME_, KEY_, VERSION_, DEPLOYMENT_ID_, RESOURCE_NAME_, DGRM_RESOURCE_NAME_, DESCRIPTION_, HAS_START_FORM_KEY_, HAS_GRAPHICAL_NOTATION_ , SUSPENSION_STATE_, TENANT_ID_, ENGINE_VERSION_, APP_VERSION_) values (?, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-09-21 15:40:38.170 DEBUG 16988 --- [           main] o.a.e.i.p.e.P.insertProcessDefinition    : ==> Parameters: cl-shengpi:1:af83f050-3980-11ed-b1bf-00ff49cde35d(String), http://www.activiti.org/processdef(String), cl-shengpi(String), cl-shengpi(String), 1(Integer), af6f2fce-3980-11ed-b1bf-00ff49cde35d(String), processes/cl-shengpi.bpmn20.xml(String), null, null, false(Boolean), true(Boolean), 1(Integer), (String), null, null
+2022-09-21 15:40:38.171 DEBUG 16988 --- [           main] o.a.e.i.p.e.P.insertProcessDefinition    : <==    Updates: 1
+2022-09-21 15:40:38.171 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : inserting: DeploymentEntity[id=af6f2fce-3980-11ed-b1bf-00ff49cde35d, name=审批流程]
+2022-09-21 15:40:38.172 DEBUG 16988 --- [           main] o.a.e.i.p.e.D.insertDeployment           : ==>  Preparing: insert into ACT_RE_DEPLOYMENT(ID_, NAME_, CATEGORY_, KEY_, TENANT_ID_, DEPLOY_TIME_, ENGINE_VERSION_, VERSION_, PROJECT_RELEASE_VERSION_) values(?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-09-21 15:40:38.172 DEBUG 16988 --- [           main] o.a.e.i.p.e.D.insertDeployment           : ==> Parameters: af6f2fce-3980-11ed-b1bf-00ff49cde35d(String), 审批流程(String), null, null, (String), 2022-09-21 15:40:38.025(Timestamp), null, 1(Integer), null
+2022-09-21 15:40:38.173 DEBUG 16988 --- [           main] o.a.e.i.p.e.D.insertDeployment           : <==    Updates: 1
+2022-09-21 15:40:38.173 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : inserting: ResourceEntity[id=af6f2fcf-3980-11ed-b1bf-00ff49cde35d, name=processes/cl-shengpi.bpmn20.xml]
+2022-09-21 15:40:38.173 DEBUG 16988 --- [           main] o.a.e.i.p.e.R.insertResource             : ==>  Preparing: insert into ACT_GE_BYTEARRAY(ID_, REV_, NAME_, BYTES_, DEPLOYMENT_ID_, GENERATED_) values (?, 1, ?, ?, ?, ?)
+2022-09-21 15:40:38.173 DEBUG 16988 --- [           main] o.a.e.i.p.e.R.insertResource             : ==> Parameters: af6f2fcf-3980-11ed-b1bf-00ff49cde35d(String), processes/cl-shengpi.bpmn20.xml(String), java.io.ByteArrayInputStream@25ea068e(ByteArrayInputStream), af6f2fce-3980-11ed-b1bf-00ff49cde35d(String), false(Boolean)
+2022-09-21 15:40:38.174 DEBUG 16988 --- [           main] o.a.e.i.p.e.R.insertResource             : <==    Updates: 1
+2022-09-21 15:40:38.175 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- DeployCmd finished --------------------------------------------------------
+2022-09-21 15:40:38.175 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:40:38.191 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:40:38.191 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- starting StartProcessInstanceCmd --------------------------------------------------------
+2022-09-21 15:40:38.191 DEBUG 16988 --- [           main] o.a.spring.SpringTransactionInterceptor  : Running command with propagation REQUIRED
+2022-09-21 15:40:38.191 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.interceptor.CommandInvoker$1 added to agenda
+
+
+
+
+
+
+
+
+2022-09-21 15:42:08.330 DEBUG 16988 --- [           main] p.e.P.selectLatestProcessDefinitionByKey : ==>  Preparing: select * from ACT_RE_PROCDEF where KEY_ = ? and (TENANT_ID_ = '' or TENANT_ID_ is null) and VERSION_ = (select max(VERSION_) from ACT_RE_PROCDEF where KEY_ = ? and (TENANT_ID_ = '' or TENANT_ID_ is null))
+2022-09-21 15:42:08.330 DEBUG 16988 --- [           main] p.e.P.selectLatestProcessDefinitionByKey : ==> Parameters: cl-shengpi(String), cl-shengpi(String)
+2022-09-21 15:42:08.334 DEBUG 16988 --- [           main] p.e.P.selectLatestProcessDefinitionByKey : <==      Total: 1
+
+
+2022-09-21 15:43:02.052 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:43:02.052 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- starting GetDeploymentResourceNamesCmd --------------------------------------------------------
+2022-09-21 15:43:02.052 DEBUG 16988 --- [           main] o.a.spring.SpringTransactionInterceptor  : Running command with propagation REQUIRED
+2022-09-21 15:43:02.052 DEBUG 16988 --- [           main] o.a.e.i.i.CommandContextInterceptor      : Valid context found. Reusing it for the current command 'org.activiti.engine.impl.cmd.GetDeploymentResourceNamesCmd'
+2022-09-21 15:43:02.052 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.interceptor.CommandInvoker$1 added to agenda
+2022-09-21 15:43:02.052 DEBUG 16988 --- [           main] .p.e.R.selectResourceNamesByDeploymentId : ==>  Preparing: select NAME_ from ACT_GE_BYTEARRAY where DEPLOYMENT_ID_ = ? order by NAME_ asc
+2022-09-21 15:43:02.052 DEBUG 16988 --- [           main] .p.e.R.selectResourceNamesByDeploymentId : ==> Parameters: af6f2fce-3980-11ed-b1bf-00ff49cde35d(String)
+2022-09-21 15:43:02.053 DEBUG 16988 --- [           main] .p.e.R.selectResourceNamesByDeploymentId : <==      Total: 1
+2022-09-21 15:43:02.054 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- GetDeploymentResourceNamesCmd finished --------------------------------------------------------
+2022-09-21 15:43:02.054 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+
+
+
+
+2022-09-21 15:43:02.057 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: ACTIVITY
+2022-09-21 15:43:02.057 DEBUG 16988 --- [           main] o.a.e.i.p.e.ExecutionEntityManagerImpl   : Child execution Execution[ id '0548b9d2-3981-11ed-b1bf-00ff49cde35d' ] - parent '05486bb1-3981-11ed-b1bf-00ff49cde35d' created with parent 05486bb1-3981-11ed-b1bf-00ff49cde35d
+2022-09-21 15:43:02.058 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.agenda.ContinueProcessOperation added to agenda
+2022-09-21 15:43:02.059 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.CommandInvoker    : Executing operation class org.activiti.engine.impl.agenda.ContinueProcessOperation
+2022-09-21 15:43:02.059 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: ACTIVITY
+2022-09-21 15:43:02.059 DEBUG 16988 --- [           main] o.a.e.i.agenda.ContinueProcessOperation  : Executing activityBehavior class org.activiti.engine.impl.bpmn.behavior.NoneStartEventActivityBehavior on activity 'startEvent1' with execution 0548b9d2-3981-11ed-b1bf-00ff49cde35d
+2022-09-21 15:43:02.063 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.agenda.TakeOutgoingSequenceFlowsOperation added to agenda
+2022-09-21 15:43:02.063 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.CommandInvoker    : Executing operation class org.activiti.engine.impl.agenda.TakeOutgoingSequenceFlowsOperation
+2022-09-21 15:43:02.063 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: ACTIVITY
+2022-09-21 15:43:02.064 DEBUG 16988 --- [           main] e.i.a.TakeOutgoingSequenceFlowsOperation : Leaving flow node class org.activiti.bpmn.model.StartEvent with id 'startEvent1' by following it's 1 outgoing sequenceflow
+2022-09-21 15:43:02.065 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.agenda.ContinueProcessOperation added to agenda
+2022-09-21 15:43:02.065 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.CommandInvoker    : Executing operation class org.activiti.engine.impl.agenda.ContinueProcessOperation
+2022-09-21 15:43:02.067 DEBUG 16988 --- [           main] o.a.e.i.agenda.ContinueProcessOperation  : Sequence flow 'sid-64B6EF7A-21F6-4D07-8AC5-5EE4B86BF246' encountered. Continuing process by following it using execution 0548b9d2-3981-11ed-b1bf-00ff49cde35d
+2022-09-21 15:43:02.067 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.agenda.ContinueProcessOperation added to agenda
+2022-09-21 15:43:02.067 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.CommandInvoker    : Executing operation class org.activiti.engine.impl.agenda.ContinueProcessOperation
+2022-09-21 15:43:02.067 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: ACTIVITY
+2022-09-21 15:43:02.067 DEBUG 16988 --- [           main] o.a.e.i.agenda.ContinueProcessOperation  : Executing activityBehavior class org.activiti.runtime.api.impl.MappingAwareUserTaskBehavior on activity 'Asp' with execution 0548b9d2-3981-11ed-b1bf-00ff49cde35d
+2022-09-21 15:43:02.083 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: AUDIT
+2022-09-21 15:43:02.084 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: AUDIT
+2022-09-21 15:43:02.084 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: ACTIVITY
+2022-09-21 15:43:02.084 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: ACTIVITY
+2022-09-21 15:43:02.084 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:43:02.084 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- starting GetDeploymentProcessDefinitionCmd --------------------------------------------------------
+2022-09-21 15:43:02.084 DEBUG 16988 --- [           main] o.a.spring.SpringTransactionInterceptor  : Running command with propagation REQUIRED
+2022-09-21 15:43:02.084 DEBUG 16988 --- [           main] o.a.e.i.i.CommandContextInterceptor      : Valid context found. Reusing it for the current command 'org.activiti.engine.impl.cmd.GetDeploymentProcessDefinitionCmd'
+2022-09-21 15:43:02.084 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.interceptor.CommandInvoker$1 added to agenda
+2022-09-21 15:43:02.085 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.agenda.ExecuteInactiveBehaviorsOperation added to agenda
+2022-09-21 15:43:02.085 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.CommandInvoker    : Executing operation class org.activiti.engine.impl.agenda.ExecuteInactiveBehaviorsOperation
+2022-09-21 15:43:02.085 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- GetDeploymentProcessDefinitionCmd finished --------------------------------------------------------
+2022-09-21 15:43:02.085 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+2022-09-21 15:43:02.087 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: ACTIVITY
+2022-09-21 15:43:02.087 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: AUDIT
+2022-09-21 15:43:02.087 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: AUDIT
+2022-09-21 15:43:02.087 DEBUG 16988 --- [           main] o.a.e.i.p.e.I.selectIdentityLinksByTask  : ==>  Preparing: select * from ACT_RU_IDENTITYLINK where TASK_ID_ = ?
+2022-09-21 15:43:02.088 DEBUG 16988 --- [           main] o.a.e.i.p.e.I.selectIdentityLinksByTask  : ==> Parameters: 054cb173-3981-11ed-b1bf-00ff49cde35d(String)
+2022-09-21 15:43:02.089 DEBUG 16988 --- [           main] o.a.e.i.p.e.I.selectIdentityLinksByTask  : <==      Total: 0
+2022-09-21 15:43:02.091 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: AUDIT
+2022-09-21 15:43:02.091 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: AUDIT
+2022-09-21 15:43:02.091 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: AUDIT
+2022-09-21 15:43:02.091 DEBUG 16988 --- [           main] o.a.e.i.history.DefaultHistoryManager    : Current history level: NONE, level required: AUDIT
+2022-09-21 15:43:02.096 DEBUG 16988 --- [           main] o.a.e.i.a.DefaultActivitiEngineAgenda    : Operation class org.activiti.engine.impl.agenda.ExecuteInactiveBehaviorsOperation added to agenda
+2022-09-21 15:43:02.096 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.CommandInvoker    : Executing operation class org.activiti.engine.impl.agenda.ExecuteInactiveBehaviorsOperation
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : Flushing dbSqlSession
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert ProcessInstance[05486bb1-3981-11ed-b1bf-00ff49cde35d]
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert Execution[ id '0548b9d2-3981-11ed-b1bf-00ff49cde35d' ] - activity 'Asp - parent '05486bb1-3981-11ed-b1bf-00ff49cde35d'
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert Task[id=054cb173-3981-11ed-b1bf-00ff49cde35d, name=A审批]
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert IdentityLinkEntity[id=054d4db4-3981-11ed-b1bf-00ff49cde35d, type=participant, userId=a-point, processInstanceId=05486bb1-3981-11ed-b1bf-00ff49cde35d]
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert IdentityLinkEntity[id=054dc2e5-3981-11ed-b1bf-00ff49cde35d, type=candidate, userId=charlie, taskId=054cb173-3981-11ed-b1bf-00ff49cde35d]
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert IdentityLinkEntity[id=054de9f6-3981-11ed-b1bf-00ff49cde35d, type=participant, userId=charlie, processInstanceId=05486bb1-3981-11ed-b1bf-00ff49cde35d]
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert IdentityLinkEntity[id=054de9f7-3981-11ed-b1bf-00ff49cde35d, type=candidate, userId=lie, taskId=054cb173-3981-11ed-b1bf-00ff49cde35d]
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   :   insert IdentityLinkEntity[id=054de9f8-3981-11ed-b1bf-00ff49cde35d, type=participant, userId=lie, processInstanceId=05486bb1-3981-11ed-b1bf-00ff49cde35d]
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : flush summary: 8 insert, 0 update, 0 delete.
+2022-09-21 15:43:02.097 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : now executing flush...
+2022-09-21 15:43:02.099 DEBUG 16988 --- [           main] o.a.e.i.p.e.E.bulkInsertExecution        : ==>  Preparing: insert into ACT_RU_EXECUTION (ID_, REV_, PROC_INST_ID_, BUSINESS_KEY_, PROC_DEF_ID_, ACT_ID_, IS_ACTIVE_, IS_CONCURRENT_, IS_SCOPE_,IS_EVENT_SCOPE_, IS_MI_ROOT_, PARENT_ID_, SUPER_EXEC_, ROOT_PROC_INST_ID_, SUSPENSION_STATE_, TENANT_ID_, NAME_, START_TIME_, START_USER_ID_, IS_COUNT_ENABLED_, EVT_SUBSCR_COUNT_, TASK_COUNT_, JOB_COUNT_, TIMER_JOB_COUNT_, SUSP_JOB_COUNT_, DEADLETTER_JOB_COUNT_, VAR_COUNT_, ID_LINK_COUNT_, APP_VERSION_) values (?, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) , (?, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-09-21 15:43:02.101 DEBUG 16988 --- [           main] o.a.e.i.p.e.E.bulkInsertExecution        : ==> Parameters: 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), null, cl-shengpi:1:af83f050-3980-11ed-b1bf-00ff49cde35d(String), null, true(Boolean), false(Boolean), true(Boolean), false(Boolean), false(Boolean), null, null, 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), 1(Integer), (String), null, 2022-09-21 15:43:02.055(Timestamp), null, false(Boolean), 0(Integer), 0(Integer), 0(Integer), 0(Integer), 0(Integer), 0(Integer), 0(Integer), 0(Integer), null, 0548b9d2-3981-11ed-b1bf-00ff49cde35d(String), 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), null, cl-shengpi:1:af83f050-3980-11ed-b1bf-00ff49cde35d(String), Asp(String), true(Boolean), false(Boolean), false(Boolean), false(Boolean), false(Boolean), 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), null, 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), 1(Integer), (String), null, 2022-09-21 15:43:02.057(Timestamp), null, false(Boolean), 0(Integer), 0(Integer), 0(Integer), 0(Integer), 0(Integer), 0(Integer), 0(Integer), 0(Integer), null
+2022-09-21 15:43:02.102 DEBUG 16988 --- [           main] o.a.e.i.p.e.E.bulkInsertExecution        : <==    Updates: 2
+2022-09-21 15:43:02.102 DEBUG 16988 --- [           main] o.activiti.engine.impl.db.DbSqlSession   : inserting: Task[id=054cb173-3981-11ed-b1bf-00ff49cde35d, name=A审批]
+2022-09-21 15:43:02.102 DEBUG 16988 --- [           main] o.a.e.i.p.e.TaskEntityImpl.insertTask    : ==>  Preparing: insert into ACT_RU_TASK (ID_, REV_, NAME_, BUSINESS_KEY_, PARENT_TASK_ID_, DESCRIPTION_, PRIORITY_, CREATE_TIME_, OWNER_, ASSIGNEE_, DELEGATION_, EXECUTION_ID_, PROC_INST_ID_, PROC_DEF_ID_, TASK_DEF_KEY_, DUE_DATE_, CATEGORY_, SUSPENSION_STATE_, TENANT_ID_, FORM_KEY_, CLAIM_TIME_, APP_VERSION_) values (?, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2022-09-21 15:43:02.103 DEBUG 16988 --- [           main] o.a.e.i.p.e.TaskEntityImpl.insertTask    : ==> Parameters: 054cb173-3981-11ed-b1bf-00ff49cde35d(String), A审批(String), null, null, null, 50(Integer), 2022-09-21 15:43:02.068(Timestamp), null, a-point(String), null, 0548b9d2-3981-11ed-b1bf-00ff49cde35d(String), 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), cl-shengpi:1:af83f050-3980-11ed-b1bf-00ff49cde35d(String), Asp(String), null, null, 1(Integer), (String), null, null, null
+2022-09-21 15:43:02.104 DEBUG 16988 --- [           main] o.a.e.i.p.e.TaskEntityImpl.insertTask    : <==    Updates: 1
+2022-09-21 15:43:02.105 DEBUG 16988 --- [           main] o.a.e.i.p.e.I.bulkInsertIdentityLink     : ==>  Preparing: insert into ACT_RU_IDENTITYLINK (ID_, REV_, TYPE_, USER_ID_, GROUP_ID_, TASK_ID_, PROC_INST_ID_, PROC_DEF_ID_) values (?, 1, ?, ?, ?, ?, ?, ?) , (?, 1, ?, ?, ?, ?, ?, ?) , (?, 1, ?, ?, ?, ?, ?, ?) , (?, 1, ?, ?, ?, ?, ?, ?) , (?, 1, ?, ?, ?, ?, ?, ?)
+2022-09-21 15:43:02.106 DEBUG 16988 --- [           main] o.a.e.i.p.e.I.bulkInsertIdentityLink     : ==> Parameters: 054d4db4-3981-11ed-b1bf-00ff49cde35d(String), participant(String), a-point(String), null, null, 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), null, 054dc2e5-3981-11ed-b1bf-00ff49cde35d(String), candidate(String), charlie(String), null, 054cb173-3981-11ed-b1bf-00ff49cde35d(String), null, null, 054de9f6-3981-11ed-b1bf-00ff49cde35d(String), participant(String), charlie(String), null, null, 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), null, 054de9f7-3981-11ed-b1bf-00ff49cde35d(String), candidate(String), lie(String), null, 054cb173-3981-11ed-b1bf-00ff49cde35d(String), null, null, 054de9f8-3981-11ed-b1bf-00ff49cde35d(String), participant(String), lie(String), null, null, 05486bb1-3981-11ed-b1bf-00ff49cde35d(String), null
+2022-09-21 15:43:02.107 DEBUG 16988 --- [           main] o.a.e.i.p.e.I.bulkInsertIdentityLink     : <==    Updates: 5
+2022-09-21 15:43:02.110 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    : --- StartProcessInstanceCmd finished --------------------------------------------------------
+2022-09-21 15:43:02.110 DEBUG 16988 --- [           main] o.a.e.impl.interceptor.LogInterceptor    :
+
+05486bb1-3981-11ed-b1bf-00ff49cde35d

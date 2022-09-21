@@ -28,17 +28,16 @@ public class ApplicationTest {
     @Autowired
     private TaskService taskService;
 
-
     @Test
     public void deploy() {
         Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/cl-shengpi.bpmn20.xml").name("审批流程").deploy();
         System.out.println(deployment);
     }
 
-
     @Test
     public void start() {
         //部署
+        Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/cl-shengpi.bpmn20.xml").name("审批流程").deploy();
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("cl-shengpi");
         String processInstanceId = processInstance.getProcessInstanceId();
         System.out.println(processInstanceId);
