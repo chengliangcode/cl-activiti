@@ -1,5 +1,6 @@
 package com.cl.code;
 
+import org.activiti.api.process.runtime.ProcessRuntime;
 import org.activiti.engine.*;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.runtime.ProcessInstance;
@@ -9,6 +10,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * @author chengliang
@@ -28,6 +32,9 @@ public class ApplicationTest {
     @Autowired
     private TaskService taskService;
 
+    @Autowired
+    private ProcessRuntime processRuntime;
+
     @Test
     public void deploy() {
         Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/cl-shengpi.bpmn20.xml").name("审批流程").deploy();
@@ -37,7 +44,7 @@ public class ApplicationTest {
     @Test
     public void start() {
         //部署
-        Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/cl-shengpi.bpmn20.xml").name("审批流程").deploy();
+//        Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/cl-shengpi.bpmn20.xml").name("审批流程").deploy();
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("cl-shengpi");
         String processInstanceId = processInstance.getProcessInstanceId();
         System.out.println(processInstanceId);
