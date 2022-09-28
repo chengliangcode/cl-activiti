@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
  * @author chengliang
  * @date 2022/9/14 15:57
@@ -42,9 +45,12 @@ public class ApplicationTest {
     public void start() {
         //部署
 //        Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/cl-shengpi.bpmn20.xml").name("审批流程").deploy();
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("cl-shengpi");
-        String processInstanceId = processInstance.getProcessInstanceId();
-        System.out.println(processInstanceId);
+        ArrayList<String> userList = new ArrayList<>();
+        userList.add("张三");
+        userList.add("李四");
+        userList.add("王五");
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("agt_sp", Collections.singletonMap("spUserList", userList));
+
     }
 
     @Test
