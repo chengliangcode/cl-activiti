@@ -37,20 +37,19 @@ public class ApplicationTest {
 
     @Test
     public void deploy() {
-        Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/cl-shengpi.bpmn20.xml").name("审批流程").deploy();
-        System.out.println(deployment);
+        Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/agt__.bpmn20.xml").deploy();
     }
 
     @Test
     public void start() {
-        //部署
-//        Deployment deployment = repositoryService.createDeployment().addClasspathResource("processes/cl-shengpi.bpmn20.xml").name("审批流程").deploy();
+        // ProcessEngineConfigurationImpl
+        // DbSqlSession
+        // AbstractEntityManager
+        deploy();
         ArrayList<String> userList = new ArrayList<>();
         userList.add("张三");
         userList.add("李四");
-        userList.add("王五");
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("agt_sp", Collections.singletonMap("spUserList", userList));
-
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("agt_sp", Collections.singletonMap("assigneeList", userList));
     }
 
     @Test
