@@ -11,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.List;
 
 /**
  * @author chengliang
@@ -46,16 +45,14 @@ public class ApplicationTest {
         // DbSqlSession
         // AbstractEntityManager
         deploy();
-        ArrayList<String> userList = new ArrayList<>();
-        userList.add("张三");
-        userList.add("李四");
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("agt_sp", Collections.singletonMap("assigneeList", userList));
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("agt_sp");
+        System.out.println(processInstance.getProcessInstanceId());
     }
 
     @Test
     public void task() {
-        Task task = taskService.createTaskQuery().processInstanceId("0c7d4dc1-3569-11ed-b03d-00ff49cde35d").singleResult();
-        taskService.complete(task.getId());
+        List<Task> list = taskService.createTaskQuery().processInstanceId("7bd859de-409e-11ed-b9ca-00ff49cde35d").list();
+        taskService.complete(list.get(0).getId());
     }
 
     @Test
