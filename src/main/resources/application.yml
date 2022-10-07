@@ -9,7 +9,7 @@ spring:
     #2.true： activiti会对数据库中所有表进行更新操作。如果表不存在，则自动创建
     #3.create-drop： 在activiti启动时创建表，在关闭时删除表（必须手动关闭引擎，才能删除表）
     #    4.drop-create： 在activiti启动时删除原来的旧表，然后在创建新表（不需要手动关闭引擎）
-    database-schema-update: true
+    database-schema-update: drop-create
     #activiti7默认不生成历史信息表，开启历史表
     db-history-used: true
     #记录历史等级 可配置的历史级别有none, activity, audit, full
@@ -17,7 +17,7 @@ spring:
     #activity：级别高于none，保存流程实例与流程行为，其他数据不保存。
     #audit：除activity级别会保存的数据外，还会保存全部的流程任务及其属性。audit为history的默认值。
     #full：保存历史数据的最高级别，除了会保存audit级别的数据外，还会保存其他全部流程相关的细节数据，包括一些流程参数等。
-    history-level: audit
+    history-level: full
     check-process-definitions: false
     #process-definition-location-prefix: 文件目录
 logging:

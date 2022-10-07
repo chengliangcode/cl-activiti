@@ -17,12 +17,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * @author ：楼兰
- * @date ：Created in 2021/4/8
- * @description:
- **/
-
 @Configuration
 public class DemoApplicationConfig {
 
@@ -35,11 +29,9 @@ public class DemoApplicationConfig {
             String contentToProcess = (String) inBoundVariables.get("fileContent");
             // Logic Here to decide if content is approved or not
             if (contentToProcess.contains("activiti")) {
-                integrationContext.addOutBoundVariable("approved",
-                        true);
+                integrationContext.addOutBoundVariable("approved", true);
             } else {
-                integrationContext.addOutBoundVariable("approved",
-                        false);
+                integrationContext.addOutBoundVariable("approved", false);
             }
             return integrationContext;
         };
@@ -50,8 +42,7 @@ public class DemoApplicationConfig {
         return integrationContext -> {
             String contentToTag = (String) integrationContext.getInBoundVariables().get("fileContent");
             contentToTag += " :) ";
-            integrationContext.addOutBoundVariable("fileContent",
-                    contentToTag);
+            integrationContext.addOutBoundVariable("fileContent", contentToTag);
             System.out.println("Final Content: " + contentToTag);
             return integrationContext;
         };
@@ -62,8 +53,7 @@ public class DemoApplicationConfig {
         return integrationContext -> {
             String contentToDiscard = (String) integrationContext.getInBoundVariables().get("fileContent");
             contentToDiscard += " :( ";
-            integrationContext.addOutBoundVariable("fileContent",
-                    contentToDiscard);
+            integrationContext.addOutBoundVariable("fileContent", contentToDiscard);
             System.out.println("Final Content: " + contentToDiscard);
             return integrationContext;
         };

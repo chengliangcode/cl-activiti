@@ -12,14 +12,16 @@
         <userTask id="duoren" name="任务${loopCounter}" activiti:assignee="${assignee}">
             <multiInstanceLoopCharacteristics isSequential="false" activiti:collection="assigneeList"
                                               activiti:elementVariable="assignee">
-                <completionCondition>${nrOfInstances == nrOfCompletedInstances}</completionCondition>
+                <completionCondition>${nrOfCompletedInstances == 1}</completionCondition>
             </multiInstanceLoopCharacteristics>
         </userTask>
+        <userTask id="danren2" name="单人审批" activiti:assignee="lxh"></userTask>
+        <endEvent id="endEvent"></endEvent>
 
         <sequenceFlow id="startEvent_douren" sourceRef="startEvent" targetRef="danren"></sequenceFlow>
-        <endEvent id="endEvent"></endEvent>
-        <sequenceFlow id="duoren_endEvent" sourceRef="duoren" targetRef="endEvent"></sequenceFlow>
         <sequenceFlow id="danren_duoren" sourceRef="danren" targetRef="duoren"></sequenceFlow>
+        <sequenceFlow id="duoren_danren2" sourceRef="duoren" targetRef="danren2"></sequenceFlow>
+        <sequenceFlow id="danren2_endEvent" sourceRef="danren2" targetRef="endEvent"></sequenceFlow>
 
     </process>
 </definitions>

@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -32,6 +34,9 @@ public class ApplicationTest {
     private TaskService taskService;
 
     @Autowired
+    private HistoryService historyService;
+
+    @Autowired
     private ProcessRuntime processRuntime;
 
     @Test
@@ -44,15 +49,31 @@ public class ApplicationTest {
         // ProcessEngineConfigurationImpl
         // DbSqlSession
         // AbstractEntityManager
+        List<String> users = new ArrayList<>();
+        users.add("张三");
+        users.add("李四");
+
         deploy();
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("agt_sp");
-        System.out.println(processInstance.getProcessInstanceId());
+
+        Task task = taskService.createTaskQuery().processInstanceId(processInstance.getProcessInstanceId()).singleResult();
+        taskService.complete(task.getId(), Collections.singletonMap("assigneeList", users));
+
+
+        task = taskService.createTaskQuery().taskAssignee("李四").singleResult();
+        taskService.complete(task.getId());
+
+//        List<HistoricProcessInstance> list = historyService.createHistoricProcessInstanceQuery().list();
+
+//
+//        task = taskService.createTaskQuery().taskAssignee("lxh").singleResult();
+//        taskService.complete(task.getId());
+
     }
 
     @Test
     public void task() {
-        List<Task> list = taskService.createTaskQuery().processInstanceId("7bd859de-409e-11ed-b9ca-00ff49cde35d").list();
-        taskService.complete(list.get(0).getId());
+
     }
 
     @Test
